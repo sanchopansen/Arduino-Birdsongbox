@@ -5,11 +5,14 @@ This project is a little Arduino powered DIY-Birdbox that plays relaxing sounds 
 The current program plays a mp3-file only for one time once a light is detected. That means the light has to be turned off and on again to trigger a new sound-event.
 
 ## Used Modules
-- Arduino Pro Mini (5V) (I used a cheap copy from Aliexpress)
-- ...
-- ...
-- ...
-
+- Arduino Pro Mini (5V) ([I used a cheap copy from Aliexpress](https://www.aliexpress.com/item/1005005682257328.html?spm=a2g0o.order_list.order_list_main.43.33761802lrz29v))
+- DFPlayer Mini
+- Photo Resistor (KY-018)
+- Speaker (3W) (https://www.aliexpress.com/item/1005005699690954.html?spm=a2g0o.order_list.order_list_main.98.1f331802L8Zf65)
+- Resistor (1KΩ)
+- Battery (18650 3.7V)
+- Battery Shield (https://www.aliexpress.com/item/1005007052223730.html?spm=a2g0o.order_list.order_list_main.33.33761802lrz29v)
+- Breadboard (optional)
 
 
 ## Simplified schematic
