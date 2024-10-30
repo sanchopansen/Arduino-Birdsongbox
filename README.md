@@ -5,14 +5,14 @@ This project is a little Arduino powered DIY-Birdbox that plays relaxing sounds 
 The current program plays a mp3-file only for one time once a light is detected. That means the light has to be turned off and on again to trigger a new sound-event.
 
 ## Used Modules
-- Arduino Pro Mini (5V) ([I used a cheap copy from Aliexpress](https://www.aliexpress.com/item/1005005682257328.html?spm=a2g0o.order_list.order_list_main.43.33761802lrz29v))
-- DFPlayer Mini
-- Photo Resistor (KY-018)
-- Speaker (3W) (https://www.aliexpress.com/item/1005005699690954.html?spm=a2g0o.order_list.order_list_main.98.1f331802L8Zf65)
+- Arduino Pro Mini (5V) ([from Aliexpress](https://www.aliexpress.com/item/1005005682257328.html?spm=a2g0o.order_list.order_list_main.43.33761802lrz29v))
+- DFPlayer Mini ([from Aliepxress](https://www.aliexpress.com/item/1005005656568976.html?spm=a2g0o.order_list.order_list_main.94.33761802lrz29v))
+- Photo Resistor (KY-018) ([from Aliexpress]https://www.aliexpress.com/item/32820189174.html?spm=a2g0o.order_list.order_list_main.48.33761802lrz29v)
+- Speaker (3W) ([from ALiexpress]https://www.aliexpress.com/item/1005005699690954.html?spm=a2g0o.order_list.order_list_main.98.1f331802L8Zf65)
 - Resistor (1KΩ)
-- Battery (18650 3.7V)
-- Battery Shield (https://www.aliexpress.com/item/1005007052223730.html?spm=a2g0o.order_list.order_list_main.33.33761802lrz29v)
-- Breadboard (optional)
+- Battery (18650 3.7V) ([from Aliexpress]https://www.aliexpress.com/item/1005004158784952.html?spm=a2g0o.order_list.order_list_main.99.33761802lrz29v
+- Battery Shield ([from Aliexpress]https://www.aliexpress.com/item/1005007052223730.html?spm=a2g0o.order_list.order_list_main.33.33761802lrz29v)
+- Breadboard ([from Aliexpress](https://de.aliexpress.com/item/1005004532352681.html?spm=a2g0o.order_list.order_list_main.77.33761802lrz29v&gatewayAdapt=glo2deu))
 
 
 ## Simplified schematic
