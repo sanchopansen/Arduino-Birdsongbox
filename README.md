@@ -27,7 +27,7 @@ I built a small wooden birdhouse as a "case" for the arduino project. All electr
 There is a Sketchup 3D Model available:
 https://app.sketchup.com/share/tc/europe/pDmHIHXdnNE?stoken=lQ4t4gSU8HMbl9oz2908T24pAfAkvAikkbDwahcQJXhCgqBh8PKOoobSniSJDw6E&source=web![image](https://github.com/user-attachments/assets/b265293e-ed75-48d7-878a-17c8199245d4)
 
-
+![]https://github.com/sanchopansen/Arduino-Birdsongbox/blob/02a27dd52c7891c56a3dc949c97e2f10bf2a3a6f/pictures/sketchup_model.png
 
 
 
