@@ -16,7 +16,7 @@ The current program plays a mp3-file only for one time once a light is detected.
 - Little Breadboard
 
 ## Simplified schematic
-Bild...
+
 ![](https://github.com/sanchopansen/Arduino-Birdsongbox/blob/b55efcbf96f68ed82781ca9670482a5de9a27ee4/schematic/birdsongbox_simple_schematic.png)
 
 ## Birdhouse
