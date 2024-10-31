@@ -17,7 +17,8 @@ The current program plays a mp3-file only for one time once a light is detected.
 
 ## Simplified schematic
 Bild...
-![](https://github.com/rediculum/SoundBox/raw/master/SoundBox_fritzing.png)
+![](https://github.com/sanchopansen/Arduino-Birdsongbox/birdsongbox_simple_schematic.png)
+
 
 ## Pinout
 ### SD Card > Arduino pinout:
