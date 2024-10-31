@@ -12,8 +12,8 @@ The current program plays a mp3-file only for one time once a light is detected.
 - Resistor (1KΩ)
 - Battery (18650 3.7V)
 - Battery Shield ([from Aliexpress](https://www.aliexpress.com/item/1005007052223730.html?spm=a2g0o.order_list.order_list_main.33.33761802lrz29v))
-- Breadboard
-
+- SD-Card
+- Little Breadboard
 
 ## Simplified schematic
 Bild...
@@ -32,7 +32,7 @@ Bild...
 
 Link zum Sketchup: 
 ## References and used libraries
-- Dfplayer mini fast (oder so) https://github.com/TMRh20/TMRpcm or install it from Arduino IDE Lib Manager
-- lowpower....
+- [DfPlayerMini_Fast](https://github.com/PowerBroker2/DFPlayerMini_Fast) by PowerBroker2
+- [Low-Power](https://github.com/rocketscream/Low-Power/tree/master) by rocketscream
 
 
