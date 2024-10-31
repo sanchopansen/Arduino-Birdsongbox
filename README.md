@@ -1,8 +1,10 @@
 # Arduino-Birdsongbox
 
-This project is a little Arduino powered DIY-Birdbox that plays relaxing sounds (e.g. birdsongs, rain sounds, ocean sounds) once you enter a room and turn on the lights. A photoresistor detects light and triggers an mp3-module that plays the sound.
+This project is a little Arduino  DIY-Birdbox that plays relaxing sounds (e.g. birdsongs, rain sounds, ocean sounds) once you enter a room and turn on the lights. A photoresistor detects light and triggers an mp3-module that plays the sound.
 
 The current program plays a mp3-file only for one time once a light is detected. That means the light has to be turned off and on again to trigger a new sound-event.
+
+Thanks to the battery shield the Birdsongbox can be powered by battery or by an external power source. I tried to increase battery life by removing the power-led of the arduino and using the LowPower library to set the arduino into sleep state when nothing happens.
 
 ## Used Modules
 - Arduino Pro Mini (5V) ([from Aliexpress](https://www.aliexpress.com/item/1005005682257328.html?spm=a2g0o.order_list.order_list_main.43.33761802lrz29v))
