@@ -19,17 +19,11 @@ The current program plays a mp3-file only for one time once a light is detected.
 Bild...
 ![](https://github.com/sanchopansen/Arduino-Birdsongbox/blob/b55efcbf96f68ed82781ca9670482a5de9a27ee4/schematic/birdsongbox_simple_schematic.png)
 
-
-## Pinout
-### SD Card > Arduino pinout:
-```
-SCK  (5) -> Pin 13 must be!
-CS (1)   -> Pin 10 (Chip select)
-MOSI (2) -> Pin 11 must be!
-MISO (7) -> Pin 12 must be!
-```
 ## Birdhouse
-Bild...
+I built a small wooden birdhouse as a "case" for the arduino project. All electronics are inside the house. There is a big hole in the front for the speaker and a pretty small hole for the LDR-sensor.
+
+
+![](https://github.com/sanchopansen/Arduino-Birdsongbox/blob/bf54da6a8fc876d26d508ed0c24a10647eb99b33/pictures/pic1.jpeg)
 
 Link zum Sketchup: 
 ## References and used libraries
