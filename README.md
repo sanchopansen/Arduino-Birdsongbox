@@ -4,14 +4,16 @@ This project is a little Arduino  DIY-Birdbox that plays relaxing sounds (e.g. b
 
 The current program plays a mp3-file only for one time once a light is detected. That means the light has to be turned off and on again to trigger a new sound-event.
 
-Thanks to the battery shield the Birdsongbox can be powered by battery or by an external power source. I tried to increase battery life by removing the power-led of the arduino and using the LowPower library to set the arduino into sleep state when nothing happens.
+The battery shield supplies 3.3V to power the Arduino and 5V to power the mp3 module. To ensure communication between the Arduino and the DFPLayer Mini with their different voltages, a 2-channel logic level converter is connected in between.
+
+Thanks to the battery shield the Birdsongbox can be powered by battery or by an external power source. I tried to increase battery life by removing the power-leds of the arduino and the photo resistor module and using the LowPower library to set the arduino into deepsleep state when nothing happens. The photo-resistor works as a trigger to wake up the arduino once a light is detected.
 
 ## Used Modules
-- Arduino Pro Mini (5V) ([from Aliexpress](https://www.aliexpress.com/item/1005005682257328.html?spm=a2g0o.order_list.order_list_main.43.33761802lrz29v))
+- Arduino Pro Mini (3.3V) ([from Aliexpress](https://www.aliexpress.com/item/1005005682257328.html?spm=a2g0o.order_list.order_list_main.170.21ef1802MG1nAd))
 - DFPlayer Mini ([from Aliepxress](https://www.aliexpress.com/item/1005005656568976.html?spm=a2g0o.order_list.order_list_main.94.33761802lrz29v))
-- Photo Resistor (KY-018) ([from Aliexpress](https://www.aliexpress.com/item/32820189174.html?spm=a2g0o.order_list.order_list_main.48.33761802lrz29v))
+- Photo Resistor (LM393) ([from Aliexpress](https://www.aliexpress.com/item/1005006157949482.html?spm=a2g0o.order_list.order_list_main.5.21ef1802MG1nAd))
 - Speaker (3W) ([from ALiexpress](https://www.aliexpress.com/item/1005005699690954.html?spm=a2g0o.order_list.order_list_main.98.1f331802L8Zf65))
-- Resistor (1KΩ)
+- 2-Channel Logic Level Converter ([from Aliexpress](https://www.aliexpress.com/item/1005002976498419.html?spm=a2g0o.order_list.order_list_main.52.21ef1802MG1nAd))
 - Battery (18650 3.7V)
 - Battery Shield ([from Aliexpress](https://www.aliexpress.com/item/1005007052223730.html?spm=a2g0o.order_list.order_list_main.33.33761802lrz29v))
 - SD-Card
