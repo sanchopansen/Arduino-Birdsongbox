@@ -21,7 +21,7 @@ Thanks to the battery shield the Birdsongbox can be powered by battery or by an 
 
 ## Simplified schematic
 
-![](https://github.com/sanchopansen/Arduino-Birdsongbox/blob/b55efcbf96f68ed82781ca9670482a5de9a27ee4/schematic/birdsongbox_simple_schematic.png)
+![](https://github.com/sanchopansen/Arduino-Birdsongbox/blob/main/schematic/birdsongbox_simple_schematic.png)
 
 ## Birdhouse
 I built a small wooden birdhouse as a "case" for the arduino project. All electronics are inside the house. There is a big hole in the front for the speaker and a pretty small one for the LDR-sensor.
