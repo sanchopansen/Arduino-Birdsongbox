@@ -1,65 +1,81 @@
 #include <LowPower.h>
 #include <DFPlayerMini_Fast.h>
 #include "SoftwareSerial.h"
+#include <avr/sleep.h>
+#include <avr/interrupt.h>
 
-const int speakervol = 20; //Set volume value. From 0 to 30
+const int lightPin = 2;  // Connect DO pin of LM393 to digital pin 2
+const int speakervol = 9; // Set volume value. From 0 to 30
 const int RXpin = 7;
 const int TXpin = 6;
-const int LDR_PIN = A1; //Analog Pin for LDR Sensor
-const int BRT_THR = 750; //Brightness Threshold from LDR Sensor -> low value = brighter environment
 
-SoftwareSerial mySerial(RXpin,TXpin); // RX, TX
+volatile bool shouldPlayTrack = false;  // Flag to indicate if a track should be played
+bool previousLightState = HIGH;  // Track the previous light state (HIGH = Light OFF)
+
+SoftwareSerial mySerial(RXpin, TXpin); // RX, TX
 DFPlayerMini_Fast myMP3;
 
 void setup() {
-  // put your setup code here, to run once:
+  pinMode(lightPin, INPUT);  // Set the light pin as input
+  attachInterrupt(digitalPinToInterrupt(lightPin), wakeUp, FALLING);  // Trigger on falling edge (dark to bright)
+  Serial.begin(9600);  // Start serial communication for debugging
   mySerial.begin(9600);
-  Serial.begin(9600);
-  myMP3.begin(mySerial, false); //debugging true or false
+  myMP3.begin(mySerial, false);  // Debugging true or false
   delay(1000);
-  myMP3.volume(speakervol);
-
+  myMP3.volume(speakervol);  //Set
 }
-
-//Wie soll das Programm funktionieren?
- //Wache alle 8s auf und checke ldr-wert
-    //wenn wert:
-        //wenn isplaying()=false
-            //dann spiele random track
-            //schlafe für ??? Sekunden (solange, bis Trakc fertig (längster Track geht 1:46))
-            //oder pauschal schlafe für 2 Minuten
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  float LDR_VAL = analogRead(LDR_PIN);
-  if (LDR_VAL < BRT_THR) {
-    //Serial.print("LDR Value is: ");
-    Serial.println(LDR_VAL);
-    //Serial.print(" Wecke MP3 PLayer auf!");
-    myMP3.wakeUp();
-    Serial.print(myMP3.isPlaying());
-    if (myMP3.isPlaying() == false) {
-      LowPower.powerDown(SLEEP_4S, ADC_OFF, BOD_OFF);
-      ///Serial.print("Spiele random Track und leg Arduino schlafen für 2 Min.");
-      myMP3.randomAll();
-      sleepForSeconds(120);
-      //Serial.print("Leg MP3 Player schlafen");
-      myMP3.sleep();
-    }
+  // Enter sleep mode
+  sleepNow();
+
+  if (shouldPlayTrack) {
+    // Play one track only when light turns ON
+    delay(5000); //Wait before start playback
+    playTrack();
+    shouldPlayTrack = false;  // Reset the flag after playing the track
   }
-  else {
-    //Serial.print("LDR Value is: ");
-    //Serial.print(LDR_VAL);
-    //Serial.println(". Zu dunkel...");
-    myMP3.stop();
-    myMP3.sleep();
+
+  // Re-check light status to avoid unintended playback
+  bool currentLightState = digitalRead(lightPin);
+  if (previousLightState == HIGH && currentLightState == LOW) {
+    // Light just turned ON (dark to bright), allow track playback
+    previousLightState = LOW;
+  } else if (previousLightState == LOW && currentLightState == HIGH) {
+    // Light just turned OFF (bright to dark), prepare for next detection
+    previousLightState = HIGH;
   }
-  LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF); 
 }
 
-void sleepForSeconds(int seconds) {
-  int cycles = seconds / 8;
-  for (int i = 0; i < cycles; i++) {
-    LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);
+void playTrack() {
+  //Serial.println("Woken up by light detection!");
+  delay(2000);  // delay for initialization
+
+  myMP3.wakeUp();
+  //Serial.println("Playing a track...");
+  int randomTrack = random(1, myMP3.numSdTracks() + 1);  // Select a random track
+  myMP3.play(randomTrack);
+
+  // Sleep in intervals while the track is playing
+  while (myMP3.isPlaying()) {
+    LowPower.powerDown(SLEEP_8S, ADC_OFF, BOD_OFF);  // Sleep for 8 seconds
+  }
+
+  //Serial.println("Track finished!");
+  myMP3.stop();
+  myMP3.sleep();
+}
+
+void sleepNow() {
+  set_sleep_mode(SLEEP_MODE_PWR_DOWN);  // Set sleep mode to Power Down
+  sleep_enable();                       // Enable sleep mode
+  sleep_mode();                         // Enter sleep mode
+  sleep_disable();                      // Disable sleep after waking up
+}
+
+void wakeUp() {
+  // Only set the flag to play a track if the light turned ON (FALLING edge)
+  if (digitalRead(lightPin) == LOW) {  // Light is ON (LOW)
+    shouldPlayTrack = true;
   }
 }
