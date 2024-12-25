@@ -8,6 +8,8 @@ The battery shield supplies 3.3V to power the Arduino and 5V to power the mp3 mo
 
 Thanks to the battery shield the Birdsongbox can be powered by battery or by an external power source. I tried to increase battery life by removing the power-leds of the arduino and the photo resistor module and using the LowPower library to set the arduino into deepsleep state when nothing happens. The photo-resistor works as a trigger to wake up the arduino once a light is detected.
 
+To optimize power consumption even more it would  be necessary to power down the DFPLayer Mini Module when not used because it draws current the whole time. A possible solution would be using a MOSFET to turn it completely off when no light is detected in the room.
+
 ## Used Modules
 - Arduino Pro Mini (3.3V) ([from Aliexpress](https://www.aliexpress.com/item/1005005682257328.html?spm=a2g0o.order_list.order_list_main.170.21ef1802MG1nAd))
 - DFPlayer Mini ([from Aliepxress](https://www.aliexpress.com/item/1005005656568976.html?spm=a2g0o.order_list.order_list_main.94.33761802lrz29v))
